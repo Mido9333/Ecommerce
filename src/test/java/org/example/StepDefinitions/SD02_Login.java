@@ -35,10 +35,7 @@ public class SD02_Login {
         P2_Login.getEmail().sendKeys(Hooks.InvalidEmail);
     }
 
-    @And("user enters password")
-    public void user_enters_password() {
-        P2_Login.getPassword().sendKeys(Hooks.ValidPassword);
-    }
+
     @When("user pressed on Log-in button")
     public void click_Login_button() {
         P2_Login.click_login_button().click();

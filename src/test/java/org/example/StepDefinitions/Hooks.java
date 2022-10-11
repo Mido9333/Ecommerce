@@ -2,8 +2,8 @@ package org.example.StepDefinitions;
 
 
 
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,7 +35,7 @@ public class Hooks {
     static public SoftAssert verifyRegistration = new SoftAssert();
     static public boolean CheckRegistration = false;
 
-    @BeforeAll
+    @Before
     public void openBrowser(){
 
         //bridge
@@ -102,7 +102,7 @@ public class Hooks {
         Hooks.sleep(20);
     }
 
-    @AfterAll
+    @After
     public static void closeDriver() {
         sleep(1000);
         driver.quit();
