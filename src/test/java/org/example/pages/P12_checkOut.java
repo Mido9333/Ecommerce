@@ -107,7 +107,7 @@ public class P12_checkOut {
         return Hooks.driver.findElement(By.xpath("//ul[@class=\"method-list\"]/li[2]/div[1]/input"));
     }
 
-    public static WebElement checkoutBtnPOM(){
+    public static WebElement checkoutBtn(){
 
         return Hooks.driver.findElement(By.xpath("//div[@class=\"checkout-buttons\"]/button"));
     }

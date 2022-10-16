@@ -1,7 +1,5 @@
 package org.example.StepDefinitions;
 
-
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -12,8 +10,6 @@ import org.example.pages.P1_Registration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -29,10 +25,9 @@ public class Hooks {
     static public String gender =  "male";
     static public String companyName = "EcommerceTesting";
     static public String option = "True";
-    static public String ValidEmail = "automationTesting@gmail.com";
+    static public String ValidEmail = "automationTesting12@gmail.com";
     static public String InvalidEmail = "automationTesting@123.com";
     static public String ValidPassword = "P@ssword";
-    static public SoftAssert verifyRegistration = new SoftAssert();
     static public boolean CheckRegistration = false;
 
     @Before
@@ -69,10 +64,6 @@ public class Hooks {
         driver.get("https://demo.nopcommerce.com/");
     }
 
-    @Given("user goes to home page")
-    public void user_goes_to_home_page() {
-        Assert.assertEquals(driver.getCurrentUrl(), "https://demo.nopcommerce.com/", "Wrong HomePage Link");
-    }
 
     @When("user enters email address")
     public void user_enters_email_address() throws InterruptedException {
@@ -103,8 +94,8 @@ public class Hooks {
     }
 
     @After
-    public static void closeDriver() {
-        sleep(1000);
+    public static void closeDriver() throws InterruptedException {
+        Thread.sleep(200);
         driver.quit();
     }
 }

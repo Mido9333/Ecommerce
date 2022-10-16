@@ -1,4 +1,4 @@
-org\example\StepDefinitions\SD01_Registration.class
-org\example\StepDefinitions\Hooks.class
-org\example\pages\P1_Registration.class
 org\example\TestRunner\runners.class
+org\example\pages\P1_Registration.class
+org\example\StepDefinitions\Hooks.class
+org\example\StepDefinitions\SD01_Registration.class

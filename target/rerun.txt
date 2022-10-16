@@ -1,0 +1,5 @@
+file:src/main/resources/features/02_Login.feature:22
+file:src/main/resources/features/11_compareList.feature:8
+file:src/main/resources/features/12_checkOut.feature:8
+file:src/main/resources/features/01_Register.feature:4
+file:src/main/resources/features/04_Search.feature:8:16

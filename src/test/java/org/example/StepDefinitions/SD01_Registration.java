@@ -1,15 +1,25 @@
 package org.example.StepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P1_Registration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class SD01_Registration {
     P1_Registration P1_Registration = new P1_Registration();
+    static public SoftAssert verifyRegistration = new SoftAssert();
+
+    @Given("user goes to home page")
+    public void user_goes_to_home_page() {
+        Assert.assertEquals(Hooks.driver.getCurrentUrl(), "https://demo.nopcommerce.com/", "Wrong HomePage Link");
+    }
+
+
     @When("user pressed on Register link")
     public void click_Register_link(){
         P1_Registration.registerlink().click();
@@ -43,9 +53,9 @@ public class SD01_Registration {
     public void DOB_choose() {
         String[] dateField = Hooks.dateOfBirth.split("/");
 
-        P1_Registration.getBirthdateDay().selectByValue(dateField[0]);
-        P1_Registration.getBirthdateMonth().selectByValue(dateField[1]);
-        P1_Registration.getBirthdateYear().selectByValue(dateField[2]);
+        P1_Registration.getBirthdateDay().selectByValue("1");
+        P1_Registration.getBirthdateMonth().selectByValue("1");
+        P1_Registration.getBirthdateYear().selectByValue("1993");
     }
 
     @When("user enters company name")
@@ -81,16 +91,16 @@ public class SD01_Registration {
 
     @Then("user log-in successfully and log-out link appears in the header")
     public void log_out_link_appears() {
-        Hooks.verifyRegistration.assertTrue(P1_Registration.click_logoutLink().isDisplayed(), "Registration Process Failed_2");
-        Hooks.verifyRegistration.assertAll();
+        verifyRegistration.assertTrue(P1_Registration.click_logoutLink().isDisplayed(), "Registration Process Failed_2");
+        verifyRegistration.assertAll();
         Hooks.CheckRegistration = true;
     }
 
     @Then("display {string} message to user")
     public void display_message(String expectedResult) {
         String actualResult = P1_Registration.messageDisplayed().getText();
-        Hooks.verifyRegistration.assertTrue(actualResult.contains(expectedResult), "Registration Failed");
-        Hooks.verifyRegistration.assertAll();
+        verifyRegistration.assertTrue(actualResult.contains(expectedResult), "Registration Failed");
+        verifyRegistration.assertAll();
         P1_Registration.click_continue().click();
     }
 

@@ -35,9 +35,10 @@ public class P1_Registration {
     }
 
     public static Select getBirthdateDay() {
-        WebElement dayOfDOB = Hooks.driver.findElement(By.cssSelector("select[name=\"DateOfBirthDay\"]"));
+
+      WebElement dayOfDOB = Hooks.driver.findElement(By.cssSelector("select[name=\"DateOfBirthDay\"]"));
         Select daychoosing = new Select(dayOfDOB);
-        return daychoosing;
+       return daychoosing;
     }
 
     public static Select getBirthdateMonth() {
